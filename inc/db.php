@@ -3,13 +3,13 @@
 error_reporting(E_ALL & ~E_NOTICE);
 
 // make a mysql database connection and save it to a variable named $conn
-$db_host = "localhost"; // database hostname
-$db_user = "root"; // database username
-$password = ""; // database password
-$db_name = "project"; // database name
+$db_host  = getenv('DB_HOST'); // database hostname
+$db_user  = getenv('DB_USER'); // database username
+$db_pass  = getenv('DB_PASS'); // database password
+$db_name  = getenv('DB_NAME'); // database name
 
 // make the connection
-$conn = new mysqli($db_host, $db_user, $password, $db_name);
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 if ($conn->connect_error) {
   // print out the error if failed to connect to database
   die("Connection failed: " . $conn->connect_error);
