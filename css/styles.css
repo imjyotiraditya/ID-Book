@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+* {
+    font-family: 'Inter', sans-serif;
+} 
+
 body {
     margin: 0;
-    font-family: Roboto, Arial, Helvetica, sans-serif;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -90,7 +95,6 @@ a {
 }
 
 h1, h2, h3 {
-    font-family: 'Times New Roman', Times, serif;
     color: teal;
 }
 
