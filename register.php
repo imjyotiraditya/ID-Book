@@ -27,13 +27,13 @@ if (checkLogin()) {
         }
     } else {
 ?>
-        <form method="post" action="register.php" enctype="multipart/form-data">
-            <label for="name">Name</label><br /><input type="text" name="name"><br />
-            <label for="username">Username</label><br /><input type="text" name="username"><br />
-            <label for="password">Password</label><br /><input type="password" name="password"><br />
-            <label for="fileToUpload">Photo</label><input type="file" name="fileToUpload" id="fileToUpload"><br />
-            <button type="submit">Register</button>
-        </form>
+<form method="post" action="register.php" enctype="multipart/form-data">
+    <label for="name">Name</label><br /><input type="text" name="name"><br />
+    <label for="username">Username</label><br /><input type="text" name="username"><br />
+    <label for="password">Password</label><br /><input type="password" name="password"><br />
+    <label for="fileToUpload">Photo</label><input type="file" name="fileToUpload" id="fileToUpload"><br />
+    <button type="submit">Register</button>
+</form>
 <?php
     }
 }

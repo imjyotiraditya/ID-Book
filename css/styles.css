@@ -2,7 +2,7 @@
 
 * {
     font-family: 'Inter', sans-serif;
-} 
+}
 
 body {
     margin: 0;
@@ -94,11 +94,18 @@ a {
     color: blue;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: teal;
 }
 
-input[type=text], input[type=number], input[type=file], input[type=tel], input[type=password], textarea {
+input[type=text],
+input[type=number],
+input[type=file],
+input[type=tel],
+input[type=password],
+textarea {
     border: 1px solid grey;
     border-radius: 4px;
     color: grey;
@@ -108,7 +115,11 @@ input[type=text], input[type=number], input[type=file], input[type=tel], input[t
     width: 100%;
 }
 
-input[type=text]:focus, input[type=number]:focus, input[type=tel]:focus, input[type=password]:focus, textarea:focus {
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=tel]:focus,
+input[type=password]:focus,
+textarea:focus {
     border: 1px solid #616161;
     color: rgb(63, 61, 61);
     background-color: rgb(218, 218, 218);
@@ -159,6 +170,7 @@ button {
     color: #fff !important;
     background-color: #4CAF50;
 }
+
 .error {
     padding: 16px;
     margin-top: 16px;
@@ -166,6 +178,7 @@ button {
     color: #fff !important;
     background-color: #ff462d;
 }
+
 .info {
     padding: 16px;
     margin-top: 16px;
@@ -173,33 +186,43 @@ button {
     color: #fff !important;
     background-color: #7ec5ff;
 }
-.success>a, .error>a, .info>a {
+
+.success>a,
+.error>a,
+.info>a {
     color: #e0dfdf;
 }
+
 table {
     width: 100%;
 }
+
 td {
     padding: 10px;
 }
+
 .td1 {
     width: 30%;
     text-align: center;
     padding-top: 1%;
 
 }
+
 .td2 {
     width: 70%;
 }
+
 .circle {
     width: 150px;
-  height: 150px;
+    height: 150px;
     border-radius: 50%;
 }
+
 .name {
     padding: 3px;
     color: #616161;
 }
+
 .block {
     height: 120px;
     width: 180px;
@@ -207,6 +230,7 @@ td {
     display: inline-block;
     position: relative;
 }
+
 .photo {
     border: 2px solid black;
     border-radius: 4px;
@@ -214,33 +238,41 @@ td {
     position: relative;
     text-align: center;
 }
+
 .photo-btn {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  border-top: 2px solid black;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  background: #616161;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    border-top: 2px solid black;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background: #616161;
 }
-.photo-btn > a {
+
+.photo-btn>a {
     color: #fff;
 }
+
 .border {
     margin-top: 12px;
     margin-bottom: 12px;
 }
+
 .center {
     text-align: center;
 }
+
 .title {
     font-weight: bold;
     font-size: 1.2em;
 }
+
 .qr {
     height: 111px;
     width: 111px;
 }
-.photo > img, a > img {
+
+.photo>img,
+a>img {
     height: 100px;
 }
