@@ -17,12 +17,12 @@ include("inc/header.php"); // include the header file
             <div class="flex justify-center">
                 <?php if(!checkLogin()) { ?>
                 <button onclick="window.location.href='login.php'"
-                    class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button>
+                    class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Login</button>
                 <button onclick="window.location.href='register.php'"
-                    class="ml-4 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Register</button>
+                    class="ml-4 inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Register</button>
                 <?php } else {?>
                 <button onclick="window.location.href='profile.php'"
-                    class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Profile</button>
+                    class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Profile</button>
                 <?php } ?>
             </div>
         </div>
@@ -43,7 +43,7 @@ include("inc/header.php"); // include the header file
             <div class="p-4 md:w-1/2 sm:w-1/2 w-full">
                 <div class="border-2 border-gray-800 px-4 py-6 rounded-lg">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" class="text-indigo-400 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                        stroke-width="2" class="text-red-400 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
                         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
                         <circle cx="9" cy="7" r="4"></circle>
                         <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
@@ -59,7 +59,7 @@ include("inc/header.php"); // include the header file
             <div class="p-4 md:w-1/2 sm:w-1/2 w-full">
                 <div class="border-2 border-gray-800 px-4 py-6 rounded-lg">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" class="text-indigo-400 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                        stroke-width="2" class="text-red-400 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
                         <path d="M3 18v-6a9 9 0 0118 0v6"></path>
                         <path
                             d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z">

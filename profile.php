@@ -93,7 +93,7 @@ if (!checkLogin()) {
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Access your documents here. If there are no documents,
                 you can upload them by clicking the button below.</p>
             <button onclick="window.location.href='add.php'"
-                class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Add
+                class="flex mx-auto mt-16 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">Add
                 Document</button>
         </div>
         <div class="flex flex-wrap -m-4">
@@ -114,7 +114,7 @@ if (!checkLogin()) {
                     <?php
                     }
                     ?>
-                    <h3 class="tracking-widest text-indigo-400 text-xs font-medium title-font">Document</h3>
+                    <h3 class="tracking-widest text-red-400 text-xs font-medium title-font">Document</h3>
                     <h2 class="text-lg text-white font-medium title-font mb-4"><?= $id['name']; ?></h2>
                     <p class="leading-relaxed text-base">
                         <a href="profile.php?doc_id=<?= $id['id']; ?>"
