@@ -36,9 +36,8 @@ if (!checkLogin()) {
 <section class="text-gray-400 bg-gray-900 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
         <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-            <h1 class="title-font font-medium text-3xl text-white">Login to your account</h1>
-            <p class="leading-relaxed mt-4">To get access to your account, please login with your username and password.
-            </p>
+            <h1 class="title-font font-medium text-3xl text-white">Add a Document</h1>
+            <p class="leading-relaxed mt-4">Fill out the form below to add a new document to your profile.</p>
         </div>
         <div
             class="lg:w-2/6 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
