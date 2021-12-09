@@ -13,9 +13,6 @@ if ($result->num_rows > 0) {
         $data[] = $row;
     }
 }
-?>
-<h1>User Profile</h1>
-<?php
 if (empty($check)) {
     echo '<p class="error">User not found, please visit to <a href="index.php">home</a> page.</p>';
 } else {

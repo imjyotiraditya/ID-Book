@@ -3,7 +3,7 @@ $title = "Register";
 include("includes/header.php");
 include('includes/phpqrcode/qrlib.php');
 if (checkLogin()) {
-    echo '<p class="info">You are already logged in, please visit to <a href="profile.php">profile</a> page.</p>';
+    header("Location: profile.php");
 } else {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // get form data from $_POST method
