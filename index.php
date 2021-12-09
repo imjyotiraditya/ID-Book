@@ -33,7 +33,8 @@ if (!checkLogin()) {
             </div>
         </div>
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-            <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+            <img class="object-cover object-center rounded" alt="hero" src="assets/img/hero.png" height="600"
+                width="720">
         </div>
     </div>
 </section>
