@@ -1,7 +1,7 @@
 <?php
 // this is the home page
 $title = "Home Page"; // set page title
-include("inc/header.php"); // include the header file
+include("includes/header.php"); // include the header file
 ?>
 <section class="text-gray-400 bg-gray-900 body-font">
     <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
@@ -15,15 +15,21 @@ include("inc/header.php"); // include the header file
                 anywhere.
             </p>
             <div class="flex justify-center">
-                <?php if(!checkLogin()) { ?>
+                <?php
+if (!checkLogin()) {
+?>
                 <button onclick="window.location.href='login.php'"
                     class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Login</button>
                 <button onclick="window.location.href='register.php'"
                     class="ml-4 inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Register</button>
-                <?php } else {?>
+                <?php
+} else {
+?>
                 <button onclick="window.location.href='profile.php'"
                     class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">Profile</button>
-                <?php } ?>
+                <?php
+}
+?>
             </div>
         </div>
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
@@ -49,10 +55,10 @@ include("inc/header.php"); // include the header file
                         <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
                     </svg>
                     <h2 class="title-font font-medium text-3xl text-white"><?php
-                      $sql = 'SELECT * FROM profiles';
-                      $result = $conn->query($sql);
-                      echo $result->num_rows;
-                    ?></h2>
+$sql    = 'SELECT * FROM profiles';
+$result = $conn->query($sql);
+echo $result->num_rows;
+?></h2>
                     <p class="leading-relaxed">Users</p>
                 </div>
             </div>
@@ -67,11 +73,11 @@ include("inc/header.php"); // include the header file
                     </svg>
 
                     <h2 class="title-font font-medium text-3xl text-white">
-                    <?php
-                    $sql = 'SELECT * FROM ids';
-                    $result = $conn->query($sql);
-                    echo $result->num_rows;
-                    ?></h2>
+                        <?php
+$sql    = 'SELECT * FROM ids';
+$result = $conn->query($sql);
+echo $result->num_rows;
+?></h2>
                     <p class="leading-relaxed">Files</p>
                 </div>
             </div>
@@ -79,5 +85,5 @@ include("inc/header.php"); // include the header file
     </div>
 </section>
 <?php
-include("inc/footer.php"); // include the footer part
+include("includes/footer.php"); // include the footer part
 ?>

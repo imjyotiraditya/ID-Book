@@ -1,6 +1,6 @@
 <?php
 $title = "Login";
-include("inc/header.php");
+include("includes/header.php");
 if (checkLogin()) {
     echo '<p class="info">You are already logged in, please visit to <a href="profile.php">profile</a> page.</p>';
 } else {
@@ -8,11 +8,11 @@ if (checkLogin()) {
         // get form data from $_POST method
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $sql = 'SELECT * FROM profiles WHERE username="' . $username . '" AND password="' . $password . '"';
-        $result = $conn->query($sql);
+        $sql      = 'SELECT * FROM profiles WHERE username="' . $username . '" AND password="' . $password . '"';
+        $result   = $conn->query($sql);
         if ($result->num_rows > 0) {
             $_SESSION['logged_in'] = true;
-            $_SESSION['username'] = $username;
+            $_SESSION['username']  = $username;
             header('Location: profile.php');
         } else {
 ?>
@@ -53,5 +53,5 @@ if (checkLogin()) {
 <?php
     }
 }
-include("inc/footer.php");
+include("includes/footer.php");
 ?>

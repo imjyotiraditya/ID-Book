@@ -1,5 +1,5 @@
 <?php
-include("inc/header.php");
+include("includes/header.php");
 session_destroy();
 header("Location: login.php");
 ?>

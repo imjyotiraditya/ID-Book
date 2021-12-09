@@ -1,24 +1,24 @@
 <?php
 $title = "Register";
-include("inc/header.php");
-include('inc/phpqrcode/qrlib.php');
+include("includes/header.php");
+include('includes/phpqrcode/qrlib.php');
 if (checkLogin()) {
     echo '<p class="info">You are already logged in, please visit to <a href="profile.php">profile</a> page.</p>';
 } else {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // get form data from $_POST method
-        $name = $_POST['name'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $target_dir = "photos/";
-        $file_name = date("U") . '_' . basename($_FILES["fileToUpload"]["name"]);
+        $name        = $_POST['name'];
+        $username    = $_POST['username'];
+        $password    = $_POST['password'];
+        $target_dir  = "assets/img/";
+        $file_name   = date("U") . '_' . basename($_FILES["fileToUpload"]["name"]);
         $target_file = $target_dir . $file_name;
         move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         $sql = "INSERT INTO profiles (name, username, password, photo) VALUES ('$name', '$username', '$password', '$target_file')";
         if ($conn->query($sql) === TRUE) {
             $id = $conn->insert_id;
             header("Location: login.php");
-            QRcode::png('https://' . $_SERVER['HTTP_HOST'] . '/details.php?id=' . $id, 'qr_codes/qr_' . $id . '.png');
+            QRcode::png('https://' . $_SERVER['HTTP_HOST'] . '/details.php?id=' . $id, 'assets/img/qr_imgs/qr_' . $id . '.png');
         } else {
             echo '<p class="error">Failed to Register! Please <a href="register.php">Register</a> again. ' . $conn->error . '</p>';
         }
@@ -67,5 +67,5 @@ if (checkLogin()) {
 <?php
     }
 }
-include("inc/footer.php");
+include("includes/footer.php");
 ?>

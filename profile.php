@@ -1,36 +1,37 @@
 <?php
 $title = "Profile";
-include("inc/header.php");
+include("includes/header.php");
 if (!checkLogin()) {
-  header("Location: login.php");
+    header("Location: login.php");
 } else {
-  $sql = 'SELECT * FROM profiles WHERE username="' . $_SESSION['username'] . '"';
-  $result = $conn->query($sql);
-
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while ($row = $result->fetch_assoc()) {
-      $data[] = $row;
+    $sql    = 'SELECT * FROM profiles WHERE username="' . $_SESSION['username'] . '"';
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
     }
-  }
-
-  // get list of ids
-  $sql2 = 'SELECT * FROM ids WHERE user_id="' . $data[0]['id'] . '"';
-  $result2 = $conn->query($sql2);
-
-  if ($result2->num_rows > 0) {
-    // output data of each row
-    while ($row2 = $result2->fetch_assoc()) {
-      $ids[] = $row2;
+    
+    // get list of ids
+    $sql2    = 'SELECT * FROM ids WHERE user_id="' . $data[0]['id'] . '"';
+    $result2 = $conn->query($sql2);
+    
+    if ($result2->num_rows > 0) {
+        // output data of each row
+        while ($row2 = $result2->fetch_assoc()) {
+            $ids[] = $row2;
+        }
     }
-  }
-
-  $img = '';
-  $doc_id = $_GET['doc_id'];
-  if (!empty($ids) && !empty($doc_id)) foreach ($ids as $id) {
-    $key = array_search($doc_id, $id);
-    if ($key !== false) {
-      $img = '
+    
+    $img    = '';
+    $doc_id = $_GET['doc_id'];
+    if (!empty($ids) && !empty($doc_id))
+        foreach ($ids as $id) {
+            $key = array_search($doc_id, $id);
+            if ($key !== false) {
+                $img = '
             <div class="xl:w-1/4 md:w-1/2 p-4">
                 <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
                     <img class="h-40 rounded w-full object-cover object-center mb-6" src="' . $id['front'] . '"
@@ -49,24 +50,24 @@ if (!checkLogin()) {
                 </div>
             </div>
             <div class="xl:w-1/4 md:w-1/2 p-4">
-            <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="' . $id['back'] . '"
-                    alt="content">
-                <h3 class="tracking-widest text-red-400 text-xs font-medium title-font">' . $id['name'] . '</h3>
-                <h2 class="text-lg text-white font-medium title-font mb-4">Back Side</h2>
-                <p class="leading-relaxed text-base">
-                    <a href="' . $id['back'] . '" class="text-red-500 inline-flex items-center md:mb-2 lg:mb-0">View
-                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </p>
-            </div>
-        </div>';
-    }
-  }
+                <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
+                    <img class="h-40 rounded w-full object-cover object-center mb-6" src="' . $id['back'] . '"
+                        alt="content">
+                    <h3 class="tracking-widest text-red-400 text-xs font-medium title-font">' . $id['name'] . '</h3>
+                    <h2 class="text-lg text-white font-medium title-font mb-4">Back Side</h2>
+                    <p class="leading-relaxed text-base">
+                        <a href="' . $id['back'] . '" class="text-red-500 inline-flex items-center md:mb-2 lg:mb-0">View
+                            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+            </div>';
+            }
+        }
 ?>
 <section class="text-gray-400 bg-gray-900 body-font">
     <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
@@ -98,22 +99,22 @@ if (!checkLogin()) {
         </div>
         <div class="flex flex-wrap -m-4">
             <?php
-            if (!empty($img)) {
-                echo $img;
-            } else {
-                if (!empty($ids)) {
-                    foreach ($ids as $id) {
-            ?>
+    if (!empty($img)) {
+        echo $img;
+    } else {
+        if (!empty($ids)) {
+            foreach ($ids as $id) {
+?>
             <div class="xl:w-1/4 md:w-1/2 p-4">
                 <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
                     <?php
-                    if (!empty($id['front'])) {
-                    ?>
+                if (!empty($id['front'])) {
+?>
                     <img class="h-40 rounded w-full object-cover object-center mb-6" src="<?= $id['front']; ?>"
                         alt="content">
                     <?php
-                    }
-                    ?>
+                }
+?>
                     <h3 class="tracking-widest text-red-400 text-xs font-medium title-font">Document</h3>
                     <h2 class="text-lg text-white font-medium title-font mb-4"><?= $id['name']; ?></h2>
                     <p class="leading-relaxed text-base">
@@ -129,14 +130,14 @@ if (!checkLogin()) {
                 </div>
             </div>
             <?php
-                  }
-                }
             }
-            ?>
+        }
+    }
+?>
         </div>
     </div>
 </section>
 <?php
 }
-include("inc/footer.php");
+include("includes/footer.php");
 ?>

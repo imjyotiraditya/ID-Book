@@ -1,13 +1,13 @@
 <?php
 // This page adds new documents
 $title = "Add Document";
-include("inc/header.php");
+include("includes/header.php");
 if (!checkLogin()) {
     header("Location: login.php");
 } else {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // get user data
-        $sql = 'SELECT * FROM profiles WHERE username="' . $_SESSION['username'] . '"';
+        $sql    = 'SELECT * FROM profiles WHERE username="' . $_SESSION['username'] . '"';
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
@@ -15,15 +15,15 @@ if (!checkLogin()) {
                 $data[] = $row;
             }
         }
-
+        
         // get form data from $_POST method
-        $target_dir = "photos/";
-        $front = date("U") . '_' . basename($_FILES["front"]["name"]);
-        $back = date("U") . '_' . basename($_FILES["back"]["name"]);
-
+        $target_dir = "assets/img/";
+        $front      = date("U") . '_' . basename($_FILES["front"]["name"]);
+        $back       = date("U") . '_' . basename($_FILES["back"]["name"]);
+        
         move_uploaded_file($_FILES["front"]["tmp_name"], $target_dir . $front);
         move_uploaded_file($_FILES["back"]["tmp_name"], $target_dir . $back);
-
+        
         $sql = 'INSERT INTO ids (name, user_id, front, back) VALUES ("' . $_POST['name'] . '", "' . $data[0]['id'] . '", "' . $target_dir . $front . '", "' . $target_dir . $back . '")';
         if ($conn->query($sql) === TRUE) {
             header("Location: profile.php");
@@ -71,5 +71,5 @@ if (!checkLogin()) {
 <?php
     }
 }
-include("inc/footer.php");
+include("includes/footer.php");
 ?>
