@@ -1,6 +1,6 @@
 <?php
-// turn off php notices
-error_reporting(E_ALL & ~E_NOTICE);
+// Turn off all error reporting
+error_reporting(0);
 
 // make a mysql database connection and save it to a variable named $conn
 $db_host  = getenv('DB_HOST'); // database hostname
