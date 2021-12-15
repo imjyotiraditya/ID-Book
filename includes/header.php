@@ -25,7 +25,7 @@ echo $title;
     <meta property="og:title" content="Store all your documents / ID's here">
     <meta property="og:description"
         content="Maintain your documents and ID's in one place and access them anytime anywhere.">
-    <meta property="og:image" content="assets/img/meta-img.png">
+    <meta property="og:image" itemprop="image" content="assets/img/meta-img.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
