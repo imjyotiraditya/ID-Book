@@ -10,10 +10,30 @@ include("config.php");
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="shortcut icon" type="image/jpg" href="assets/img/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
     <title><?php
 echo $title;
 ?></title>
+    <meta name="title" content="Store all your documents / ID's here">
+    <meta name="description" content="Maintain your documents and ID's in one place and access them anytime anywhere.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://id-book.jyotiraditya.me/">
+    <meta property="og:title" content="Store all your documents / ID's here">
+    <meta property="og:description"
+        content="Maintain your documents and ID's in one place and access them anytime anywhere.">
+    <meta property="og:image" content="assets/img/meta-img.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://id-book.jyotiraditya.me/">
+    <meta property="twitter:title" content="Store all your documents / ID's here">
+    <meta property="twitter:description"
+        content="Maintain your documents and ID's in one place and access them anytime anywhere.">
+    <meta property="twitter:image" content="assets/img/meta-img.png">
 </head>
 
 <body class="bg-gray-900">
