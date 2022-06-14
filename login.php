@@ -7,7 +7,7 @@ if (checkLogin()) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // get form data from $_POST method
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = base64_encode($_POST['password']);
         $sql      = 'SELECT * FROM profiles WHERE username="' . $username . '" AND password="' . $password . '"';
         $result   = $conn->query($sql);
         if ($result->num_rows > 0) {

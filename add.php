@@ -24,7 +24,7 @@ if (!checkLogin()) {
             echo '<p class="error">Not a valid image. Allowed files are .jpg, .jpeg, .png, .gif, .bmp</p>';
             return;
         }
-        $front      = date("U") . '_' . basename($front);
+        $front      = date("U") . '_' . base64_encode(basename($front));
         move_uploaded_file($_FILES["front"]["tmp_name"], $target_dir . $front);
 
         $back       = $_FILES['back']['name'];
@@ -32,7 +32,7 @@ if (!checkLogin()) {
             echo '<p class="error">Not a valid image. Allowed files are .jpg, .jpeg, .png, .gif, .bmp</p>';
             return;
         }
-        $back       = date("U") . '_' . basename($back);
+        $back       = date("U") . '_' . base64_encode(basename($back));
         move_uploaded_file($_FILES["back"]["tmp_name"], $target_dir . $back);
 
         $sql = 'INSERT INTO ids (name, user_id, front, back) VALUES ("' . $_POST['name'] . '", "' . $data[0]['id'] . '", "' . $target_dir . $front . '", "' . $target_dir . $back . '")';

@@ -16,15 +16,14 @@ if (checkLogin()) {
             echo '<p class="error">Username already exists. Please try again.</p>';
             return;
         }
-        $password    = $_POST['password'];
+        $password    = base64_encode($_POST['password']);
         $target_dir  = "assets/img/";
         $file = $_FILES["fileToUpload"]["name"];
         if (isImage($file) === FALSE) {
             echo '<p class="error">Not a valid image. Allowed files are .jpg, .jpeg, .png, .gif, .bmp</p>';
             return;
         }
-        $file_name   = date("U") . '_' . basename($file);
-        $target_file = $target_dir . $file_name;
+        $target_file = $target_dir . base64_encode(basename($file));
         move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         $sql = "INSERT INTO profiles (name, username, password, photo) VALUES ('$name', '$username', '$password', '$target_file')";
         if ($conn->query($sql) === TRUE) {
