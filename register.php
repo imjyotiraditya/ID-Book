@@ -11,7 +11,12 @@ if (checkLogin()) {
         $username    = $_POST['username'];
         $password    = $_POST['password'];
         $target_dir  = "assets/img/";
-        $file_name   = date("U") . '_' . basename($_FILES["fileToUpload"]["name"]);
+        $file = $_FILES["fileToUpload"]["name"];
+        if (isImage($file) === FALSE) {
+            echo '<p class="error">Not a valid image. Allowed files are .jpg, .jpeg, .png, .gif, .bmp</p>';
+            return;
+        }
+        $file_name   = date("U") . '_' . basename($file);
         $target_file = $target_dir . $file_name;
         move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         $sql = "INSERT INTO profiles (name, username, password, photo) VALUES ('$name', '$username', '$password', '$target_file')";

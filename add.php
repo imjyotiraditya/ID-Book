@@ -15,15 +15,26 @@ if (!checkLogin()) {
                 $data[] = $row;
             }
         }
-        
+
         // get form data from $_POST method
         $target_dir = "assets/img/";
-        $front      = date("U") . '_' . basename($_FILES["front"]["name"]);
-        $back       = date("U") . '_' . basename($_FILES["back"]["name"]);
-        
+
+        $front      = $_FILES['front']['name'];
+        if (isImage($front) === FALSE) {
+            echo '<p class="error">Not a valid image. Allowed files are .jpg, .jpeg, .png, .gif, .bmp</p>';
+            return;
+        }
+        $front      = date("U") . '_' . basename($front);
         move_uploaded_file($_FILES["front"]["tmp_name"], $target_dir . $front);
+
+        $back       = $_FILES['back']['name'];
+        if (isImage($back) === FALSE) {
+            echo '<p class="error">Not a valid image. Allowed files are .jpg, .jpeg, .png, .gif, .bmp</p>';
+            return;
+        }
+        $back       = date("U") . '_' . basename($back);
         move_uploaded_file($_FILES["back"]["tmp_name"], $target_dir . $back);
-        
+
         $sql = 'INSERT INTO ids (name, user_id, front, back) VALUES ("' . $_POST['name'] . '", "' . $data[0]['id'] . '", "' . $target_dir . $front . '", "' . $target_dir . $back . '")';
         if ($conn->query($sql) === TRUE) {
             header("Location: profile.php");

@@ -27,3 +27,23 @@ function checkLogin()
         return false;
     }
 }
+
+// Check if uploaded file is a image
+function isImage($file)
+{
+    $allowed = array(
+        'gif',
+        'jpg',
+        'jpeg',
+        'png',
+        'bmp'
+    );
+
+    $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+
+    if (in_array($ext, $allowed)) {
+        return true;
+    } else {
+        return false;
+    }
+}
