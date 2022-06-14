@@ -9,6 +9,13 @@ if (checkLogin()) {
         // get form data from $_POST method
         $name        = $_POST['name'];
         $username    = $_POST['username'];
+        // Check if username exists
+        $sql    = "SELECT * FROM profiles WHERE username='" . $username . "'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            echo '<p class="error">Username already exists. Please try again.</p>';
+            return;
+        }
         $password    = $_POST['password'];
         $target_dir  = "assets/img/";
         $file = $_FILES["fileToUpload"]["name"];
